@@ -1,0 +1,55 @@
+﻿@model LogInViewModel
+@inject Settings Settings
+
+@{
+    ViewData["Title"] = "Tizimga kirish";
+    ViewData["NoHeader"] = true;
+}
+
+<div class="container h-100 py-lg-5" id="login" v-cloak style="width: 1000px">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="mb-0">Beshariq beton</h3>
+                        </div>
+                        <div class="card-body">
+                            <form asp-antiforgery="true">
+                                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                                <label asp-for="Username" class="form-label">@Html.DisplayNameFor(m => m.Username)</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text text-center fas fa-user"></span>
+                                    <input type="text" class="form-control" asp-for="Username">
+                                </div>
+                                <span asp-validation-for="Username"></span>
+
+                                <label asp-for="Password" class="form-label">@Html.DisplayNameFor(m => m.Password)</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text text-center fas fa-key"></span>
+                                    <input type="password" class="form-control" asp-for="Password" aria-describedby="passwordHelpBlock">
+                                </div>
+                                <span asp-validation-for="Password"></span>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" asp-for="RememberMe">
+                                    <label class="form-check-label" asp-for="RememberMe">
+                                        @Html.DisplayNameFor(m => m.RememberMe)
+                                    </label>
+                                    <span asp-validation-for="RememberMe"></span>
+                                </div>
+
+                                <br />
+                                <br />
+                                <input type="submit" name="submit" class="btn btn-primary btn-block form-control" value="@ViewData["Title"]" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
